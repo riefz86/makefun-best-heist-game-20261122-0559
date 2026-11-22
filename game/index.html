@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midnight Vault — a heist game</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0c1c;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace, sans-serif;
+  }
+  #wrap { text-align: center; }
+  canvas {
+    display: block;
+    width: 1280px;
+    height: 720px;
+    max-width: 96vw;
+    max-height: 92vh;
+    background: #1d2340;
+    border: 2px solid #3b4370;
+    border-radius: 6px;
+  }
+  #hint {
+    color: #9aa3c7;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+  <div id="hint">WASD move &middot; SHIFT sneak &middot; E grab loot &middot; Q / click toss coin &middot; SPACE EMP &middot; R restart &middot; P pause &middot; M mute</div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
