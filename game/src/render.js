@@ -4,7 +4,7 @@
 // (title, pause, caught, level clear, getaway). Safe cover, danger and loot
 // each read at a glance: gold is loot, yellow cones are guards, red is cameras.
 import {
-  CANVAS_WIDTH, CANVAS_HEIGHT, HUD_HEIGHT, COLORS,
+  CANVAS_WIDTH, CANVAS_HEIGHT, HUD_HEIGHT, COLORS, THIEF_RADIUS,
   GUARD_VIEW_RANGE, GUARD_VIEW_HALF_ANGLE,
   CAMERA_VIEW_RANGE, CAMERA_VIEW_HALF_ANGLE,
 } from './config.js';
@@ -144,9 +144,11 @@ function drawExit(ctx, exit, time) {
   ctx.font = 'bold 13px monospace';
   ctx.textAlign = 'center';
   const label = open ? 'ESCAPE!' : 'LOCKED';
-  ctx.fillText(label, exit.x + exit.w / 2, exit.y + exit.h / 2 - 6);
+  ctx.fillText(label, exit.x + exit.w / 2, exit.y + exit.h / 2 + 4);
+  // The door's name goes beneath it: the door is too narrow for the text.
+  ctx.fillStyle = COLORS.textDim;
   ctx.font = '10px monospace';
-  ctx.fillText(exit.label, exit.x + exit.w / 2, exit.y + exit.h / 2 + 12);
+  ctx.fillText(exit.label, exit.x + exit.w / 2, exit.y + exit.h + 14);
   if (open) {
     const pulse = 0.5 + Math.sin(time * 4) * 0.3;
     ctx.strokeStyle = `rgba(57, 217, 138, ${pulse})`;
